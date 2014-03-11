@@ -10,13 +10,13 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-php composer.phar require --prefer-dist kato/yii2-dropzone "*"
+php composer.phar require --prefer-dist perminder-klair/yii2-dropzone "dev-master"
 ```
 
 or add
 
 ```
-"kato/yii2-dropzone": "*"
+"perminder-klair/yii2-dropzone": "dev-master"
 ```
 
 to the require section of your `composer.json` file.
