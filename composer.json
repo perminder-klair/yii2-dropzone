@@ -1,0 +1,18 @@
+{
+    "name": "kato/yii2-dropzone",
+    "description": "DropzoneJs Extention for Yii2",
+    "type": "yii2-extension",
+    "keywords": ["yii2","extension","dropzone","upload"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Parminder Klair",
+            "email": "perminder.klair@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "kato\\": ""
+        }
+    }
+}
