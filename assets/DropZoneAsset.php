@@ -1,6 +1,6 @@
 <?php
 
-namespace kato\assets;
+namespace kato\dropzonejs\assets;
 
 use yii\web\AssetBundle;
 

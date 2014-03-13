@@ -1,12 +1,12 @@
 <?php
 
-namespace kato;
+namespace kato\dropzonejs;
 
 //use yii\helpers\Html;
 use kato\assets\DropZoneAsset;
 
 /**
- * Usage: \kato\DropZone::widget();
+ * Usage: \kato\dropzonejs\DropZone::widget();
  * Class DropZone
  * @package kato
  */
