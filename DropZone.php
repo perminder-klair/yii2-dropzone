@@ -3,7 +3,7 @@
 namespace kato;
 
 //use yii\helpers\Html;
-use kato\DropZoneAsset;
+use kato\assets\DropZoneAsset;
 
 /**
  * Usage: \kato\DropZone::widget();
@@ -20,6 +20,7 @@ class DropZone extends \yii\base\widget
     {
         parent::init();
 
+        \Yii::setAlias('@dropzone', dirname(__FILE__));
         $this->registerAssets();
         //echo Html::tag('div', $this->renderInput(), $this->containerOptions);
     }
