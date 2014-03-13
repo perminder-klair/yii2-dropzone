@@ -1,0 +1,7 @@
+{
+  "name": "yii2-dropzone",
+  "version": "0.0.1",
+  "dependencies": {
+    "dropzone": "enyo/dropzone#~3.8.4"
+  }
+}
