@@ -33,7 +33,7 @@ class DropZone extends \yii\base\widget
 
     public function run()
     {
-        return Html::tag('div', $this->renderDropzone(), ['class' => $this->dropzoneContainer]);
+        return Html::tag('div', $this->renderDropzone(), ['id' => $this->dropzoneContainer]);
         //return '<div id="myId"><div id="previews" class="dropzone-previews"></div><button id="selectBtn">Click me to select files</button></div>';
     }
 
