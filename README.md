@@ -34,7 +34,7 @@ echo \kato\DropZone::widget();
 ```
 
 
-To pass options : (More details at [dropzonejs official docs](http://www.dropzonejs.com/#toc_4) )
+To pass options : (More details at [dropzonejs official docs](http://www.dropzonejs.com/#toc_6) )
 
 ```php
 echo \kato\DropZone::widget([

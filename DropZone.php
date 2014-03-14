@@ -19,7 +19,13 @@ class DropZone extends \yii\base\widget
      */
     public $options = [];
 
+    /**
+     * @var array An array of client events that are supported by Dropzone
+     */
+    public $clientEvents = [];
+
     //Default Values
+    public $id = 'myDropzone';
     public $uploadUrl = '/file/post';
     public $dropzoneContainer = 'myDropzone';
     public $previewsContainer = 'previews';
@@ -64,7 +70,13 @@ class DropZone extends \yii\base\widget
         $view = $this->getView();
         DropZoneAsset::register($view);
 
-        $js = 'new Dropzone("div#' . $this->dropzoneContainer . '", ' . Json::encode($this->options) . ');';
+        $js = 'var ' . $this->id . ' = new Dropzone("div#' . $this->dropzoneContainer . '", ' . Json::encode($this->options) . ');';
+
+        if (!empty($this->clientEvents)) {
+            foreach ($this->clientEvents as $event => $handler) {
+                $js = ";$this->id.on('$event', $handler);";;
+            }
+        }
 
         $view->registerJs($js);
     }
