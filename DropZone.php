@@ -4,6 +4,7 @@ namespace kato;
 
 use yii\helpers\Html;
 use yii\helpers\Json;
+use yii\web\JsExpression; //https://github.com/yiisoft/yii2/issues/636
 use kato\assets\DropZoneAsset;
 
 /**
@@ -13,6 +14,9 @@ use kato\assets\DropZoneAsset;
  */
 class DropZone extends \yii\base\widget
 {
+    public $options = [];
+
+    //Default Values
     public $uploadUrl = '/file/post';
     public $dropzoneContainer = 'myDropzone';
     public $previewsContainer = 'previews';
@@ -26,6 +30,11 @@ class DropZone extends \yii\base\widget
     public function init()
     {
         parent::init();
+
+        //set defaults
+        if (!isset($this->options['url'])) $this->options['url'] = $this->uploadUrl; // Set the url
+        if (!isset($this->options['previewsContainer'])) $this->options['previewsContainer'] = '#' . $this->selectBtn; // Define the element that should be used as click trigger to select files.
+        if (!isset($this->options['clickable'])) $this->options['clickable'] = '#' . $this->selectBtn; // Define the element that should be used as click trigger to select files.
 
         \Yii::setAlias('@dropzone', dirname(__FILE__));
         $this->registerAssets();
@@ -53,19 +62,8 @@ class DropZone extends \yii\base\widget
         $view = $this->getView();
         DropZoneAsset::register($view);
 
-        /*$params = [
-            'url' => $this->uploadUrl,
-            'previewsContainer' => '#' . $this->previewsContainer,
-            'clickable' => '#' . $this->selectBtn
-        ];
+        $js = 'new Dropzone("div#' . $this->dropzoneContainer . '", ' . Json::encode($this->options) . ');';
 
-        $js = 'new Dropzone("div#' . $this->dropzoneContainer . '", JSON.stringify(' . Json::encode($params) . '));';*/
-
-        $js = 'new Dropzone("div#' . $this->dropzoneContainer . '", {';
-        $js .= 'url: "/upload/url",'; // Set the url
-        $js .= 'previewsContainer: "#'  . $this->previewsContainer . '",'; // Define the container to display the previews
-        $js .= 'clickable: "#'  . $this->selectBtn . '"'; // Define the element that should be used as click trigger to select files.
-        $js .= '});';
         $view->registerJs($js);
     }
 }

@@ -2,6 +2,8 @@ Yii2 Dropzone
 =============
 DropzoneJs Extention for Yii2
 
+A port of [DropzoneJs](http://www.dropzonejs.com/) for Yii2 Framework
+
 Installation
 ------------
 
@@ -29,3 +31,12 @@ Once the extension is installed, simply use it in your code by  :
 
 ```php
 <?= \kato\DropZone::widget(); ?>```
+
+To pass options : (More details at [dropzonejs official docs](http://www.dropzonejs.com/#toc_4) )
+
+```php
+<?= \kato\DropZone::widget([
+       'options' => [
+           'maxFilesize' => '2',
+       ],
+   ]); ?>```
