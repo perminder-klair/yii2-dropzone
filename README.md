@@ -32,6 +32,7 @@ Once the extension is installed, simply use it in your code by  :
 ```php
 <?= \kato\DropZone::widget(); ?>```
 
+
 To pass options : (More details at [dropzonejs official docs](http://www.dropzonejs.com/#toc_4) )
 
 ```php
