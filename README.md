@@ -27,17 +27,19 @@ to the require section of your `composer.json` file.
 Usage
 -----
 
-Once the extension is installed, simply use it in your code by  :
+Once the extension is installed, simply use it in your code by to create Ajax upload area :
 
 ```php
-<?= \kato\DropZone::widget(); ?>```
+echo \kato\DropZone::widget();
+```
 
 
 To pass options : (More details at [dropzonejs official docs](http://www.dropzonejs.com/#toc_4) )
 
 ```php
-<?= \kato\DropZone::widget([
+echo \kato\DropZone::widget([
        'options' => [
            'maxFilesize' => '2',
        ],
-   ]); ?>```
+   ]);
+```
