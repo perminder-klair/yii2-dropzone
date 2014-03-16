@@ -74,7 +74,7 @@ class DropZone extends \yii\base\widget
 
         if (!empty($this->clientEvents)) {
             foreach ($this->clientEvents as $event => $handler) {
-                $js = ";$this->id.on('$event', $handler);";;
+                $js .= "$this->id.on('$event', $handler);";
             }
         }
 

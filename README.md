@@ -42,8 +42,7 @@ echo \kato\DropZone::widget([
            'maxFilesize' => '2',
            'clientEvents' => [
                'complete' => "function(file){console.log(file)}",
-               'removedfile' => "function(file){alert(file.name + ' is removed')}",
-               'sending' => "function(file, xhr, formData){formData.append('".Yii::$app->request->csrfParam."','".Yii::$app->request->getCsrfToken() ."')}"
+               'removedfile' => "function(file){alert(file.name + ' is removed')}"
            ]
        ],
    ]);
