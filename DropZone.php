@@ -26,7 +26,7 @@ class DropZone extends \yii\base\widget
 
     //Default Values
     public $id = 'myDropzone';
-    public $uploadUrl = '/file/post';
+    public $uploadUrl = '/site/upload';
     public $dropzoneContainer = 'myDropzone';
     public $previewsContainer = 'previews';
     public $selectBtn = 'selectBtn';

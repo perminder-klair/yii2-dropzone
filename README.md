@@ -40,6 +40,11 @@ To pass options : (More details at [dropzonejs official docs](http://www.dropzon
 echo \kato\DropZone::widget([
        'options' => [
            'maxFilesize' => '2',
+           'clientEvents' => [
+               'complete' => "function(file){console.log(file)}",
+               'removedfile' => "function(file){alert(file.name + ' is removed')}",
+               'sending' => "function(file, xhr, formData){formData.append('".Yii::$app->request->csrfParam."','".Yii::$app->request->getCsrfToken() ."')}"
+           ]
        ],
    ]);
 ```
