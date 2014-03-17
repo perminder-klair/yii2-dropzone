@@ -48,7 +48,7 @@ echo \kato\DropZone::widget([
    ]);
 ```
 
-Example of Upload Method :
+Example of upload method :
 
 ```php
 public function actionUpload()
@@ -59,7 +59,7 @@ public function actionUpload()
     if (isset($_FILES[$fileName])) {
         $file = \yii\web\UploadedFile::getInstanceByName($fileName);
 
-        //Get file data (save them to database or whatever)
+        //Print file data
         //print_r($file);
 
         if ($file->saveAs($uploadPath . '/' . $file->name)) {
