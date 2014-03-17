@@ -47,3 +47,28 @@ echo \kato\DropZone::widget([
        ],
    ]);
 ```
+
+Example of Upload Method :
+
+```php
+public function actionUpload()
+{
+    $fileName = 'file';
+    $uploadPath = './files';
+
+    if (isset($_FILES[$fileName])) {
+        $file = \yii\web\UploadedFile::getInstanceByName($fileName);
+
+        //Get file data (save them to database or whatever)
+        //print_r($file);
+
+        if ($file->saveAs($uploadPath . '/' . $file->name)) {
+            //Now save file data to database
+
+            echo \yii\helpers\Json::encode($file);
+        }
+    }
+
+    return false;
+}
+```
