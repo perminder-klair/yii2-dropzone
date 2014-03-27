@@ -4,7 +4,6 @@ namespace kato;
 
 use yii\helpers\Html;
 use yii\helpers\Json;
-use yii\web\JsExpression; //https://github.com/yiisoft/yii2/issues/636
 use kato\assets\DropZoneAsset;
 
 /**
