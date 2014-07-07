@@ -11,7 +11,7 @@ use kato\assets\DropZoneAsset;
  * Class DropZone
  * @package kato
  */
-class DropZone extends \yii\base\widget
+class DropZone extends \yii\base\Widget
 {
     /**
      * @var array An array of options that are supported by Dropzone
