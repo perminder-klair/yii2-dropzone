@@ -28,8 +28,6 @@ class DropZone extends \yii\base\Widget
     public $uploadUrl = '/site/upload';
     public $dropzoneContainer = 'myDropzone';
     public $previewsContainer = 'previews';
-    public $selectBtn = 'selectBtn';
-    public $selectBtnTxt = 'Select Files';
 
     /**
      * Initializes the widget
@@ -41,8 +39,8 @@ class DropZone extends \yii\base\Widget
 
         //set defaults
         if (!isset($this->options['url'])) $this->options['url'] = $this->uploadUrl; // Set the url
-        if (!isset($this->options['previewsContainer'])) $this->options['previewsContainer'] = '#' . $this->selectBtn; // Define the element that should be used as click trigger to select files.
-        if (!isset($this->options['clickable'])) $this->options['clickable'] = '#' . $this->selectBtn; // Define the element that should be used as click trigger to select files.
+        if (!isset($this->options['previewsContainer'])) $this->options['previewsContainer'] = '#' . $this->previewsContainer; // Define the element that should be used as click trigger to select files.
+        if (!isset($this->options['clickable'])) $this->options['clickable'] = true; // Define the element that should be used as click trigger to select files.
 
         \Yii::setAlias('@dropzone', dirname(__FILE__));
         $this->registerAssets();
@@ -50,13 +48,12 @@ class DropZone extends \yii\base\Widget
 
     public function run()
     {
-        return Html::tag('div', $this->renderDropzone(), ['id' => $this->dropzoneContainer]);
+        return Html::tag('div', $this->renderDropzone(), ['id' => $this->dropzoneContainer, 'class' => 'dropzone']);
     }
 
     private function renderDropzone()
     {
         $data = Html::tag('div', '', ['id' => $this->previewsContainer,'class' => 'dropzone-previews']);
-        $data .=  Html::tag('button', $this->selectBtnTxt, ['id' => $this->selectBtn]);
 
         return $data;
     }
