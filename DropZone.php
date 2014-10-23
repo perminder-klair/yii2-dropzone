@@ -28,6 +28,7 @@ class DropZone extends \yii\base\Widget
     public $uploadUrl = '/site/upload';
     public $dropzoneContainer = 'myDropzone';
     public $previewsContainer = 'previews';
+    public $autoDiscover = false;
 
     /**
      * Initializes the widget
@@ -65,7 +66,7 @@ class DropZone extends \yii\base\Widget
     {
         $view = $this->getView();
 
-        $js = 'Dropzone.autoDiscover = false;var ' . $this->id . ' = new Dropzone("div#' . $this->dropzoneContainer . '", ' . Json::encode($this->options) . ');';
+        $js = 'Dropzone.autoDiscover = ' . $this->autoDiscover . '; var ' . $this->id . ' = new Dropzone("div#' . $this->dropzoneContainer . '", ' . Json::encode($this->options) . ');';
 
         if (!empty($this->clientEvents)) {
             foreach ($this->clientEvents as $event => $handler) {
