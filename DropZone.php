@@ -28,7 +28,7 @@ class DropZone extends \yii\base\Widget
     public $uploadUrl = '/site/upload';
     public $dropzoneContainer = 'myDropzone';
     public $previewsContainer = 'previews';
-    public $autoDiscover = false;
+    public $autoDiscover = "false";
 
     /**
      * Initializes the widget
