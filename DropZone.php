@@ -28,7 +28,7 @@ class DropZone extends \yii\base\Widget
     public $uploadUrl = '/site/upload';
     public $dropzoneContainer = 'myDropzone';
     public $previewsContainer = 'previews';
-    public $autoDiscover = "false";
+    public $autoDiscover = false;
 
     /**
      * Initializes the widget
@@ -42,6 +42,7 @@ class DropZone extends \yii\base\Widget
         if (!isset($this->options['url'])) $this->options['url'] = $this->uploadUrl; // Set the url
         if (!isset($this->options['previewsContainer'])) $this->options['previewsContainer'] = '#' . $this->previewsContainer; // Define the element that should be used as click trigger to select files.
         if (!isset($this->options['clickable'])) $this->options['clickable'] = true; // Define the element that should be used as click trigger to select files.
+        $this->autoDiscover = $this->autoDiscover===false?'false':'true';
 
         \Yii::setAlias('@dropzone', dirname(__FILE__));
         $this->registerAssets();
