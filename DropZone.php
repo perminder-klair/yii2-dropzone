@@ -64,9 +64,8 @@ class DropZone extends \yii\base\Widget
     public function registerAssets()
     {
         $view = $this->getView();
-        DropZoneAsset::register($view);
 
-        $js = 'var ' . $this->id . ' = new Dropzone("div#' . $this->dropzoneContainer . '", ' . Json::encode($this->options) . ');';
+        $js = 'Dropzone.autoDiscover = false;var ' . $this->id . ' = new Dropzone("div#' . $this->dropzoneContainer . '", ' . Json::encode($this->options) . ');';
 
         if (!empty($this->clientEvents)) {
             foreach ($this->clientEvents as $event => $handler) {
@@ -75,5 +74,6 @@ class DropZone extends \yii\base\Widget
         }
 
         $view->registerJs($js);
+        DropZoneAsset::register($view);
     }
 }
