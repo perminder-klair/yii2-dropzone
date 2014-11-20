@@ -43,6 +43,11 @@ class DropZone extends \yii\base\Widget
         if (!isset($this->options['previewsContainer'])) $this->options['previewsContainer'] = '#' . $this->previewsContainer; // Define the element that should be used as click trigger to select files.
         if (!isset($this->options['clickable'])) $this->options['clickable'] = true; // Define the element that should be used as click trigger to select files.
         $this->autoDiscover = $this->autoDiscover===false?'false':'true';
+        
+        if(\Yii::$app->getRequest()->enableCsrfValidation){
+            $this->options['headers'][\yii\web\Request::CSRF_HEADER] = \Yii::$app->getRequest()->getCsrfToken();
+            $this->options['params'][\Yii::$app->getRequest()->csrfParam] = \Yii::$app->getRequest()->getCsrfToken();
+        }
 
         \Yii::setAlias('@dropzone', dirname(__FILE__));
         $this->registerAssets();
