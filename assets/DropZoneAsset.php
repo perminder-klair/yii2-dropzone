@@ -10,21 +10,22 @@ use yii\web\AssetBundle;
 class DropZoneAsset extends AssetBundle
 {
 
-    public $sourcePath = '@dropzone/bower_components';
+    public $sourcePath = '@bower/dropzone/dist';
 
     public $js = [
-        "dropzone/dist/min/dropzone.min.js"
+        "min/dropzone.min.js"
     ];
 
     public $css = [
-        "dropzone/dist/min/dropzone.min.css"
+        "min/dropzone.min.css"
     ];
 
     /**
      * @var array
      */
+    /*
     public $publishOptions = [
         'forceCopy' => true
     ];
-
+    */
 }
