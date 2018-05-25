@@ -5,6 +5,7 @@ namespace kato;
 use yii\helpers\Html;
 use yii\helpers\Json;
 use kato\assets\DropZoneAsset;
+use yii\web\View;
 
 /**
  * Usage: \kato\dropzonejs\DropZone::widget();
@@ -80,7 +81,7 @@ class DropZone extends \yii\base\Widget
             }
         }
 
-        $view->registerJs($js);
+        $view->registerJs($js, View::POS_END);
         DropZoneAsset::register($view);
     }
 }
