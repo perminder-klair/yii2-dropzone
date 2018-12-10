@@ -5,6 +5,7 @@ namespace kato;
 use yii\helpers\Html;
 use yii\helpers\Json;
 use kato\assets\DropZoneAsset;
+use yii\web\View;
 
 /**
  * Usage: \kato\dropzonejs\DropZone::widget();
@@ -72,7 +73,8 @@ class DropZone extends \yii\base\Widget
     {
         $view = $this->getView();
 
-        $js = 'Dropzone.autoDiscover = ' . $this->autoDiscover . '; var ' . $this->id . ' = new Dropzone("div#' . $this->dropzoneContainer . '", ' . Json::encode($this->options) . ');';
+        $jsAutoDiscover = 'Dropzone.autoDiscover = ' . $this->autoDiscover;
+        $js = 'var ' . $this->id . ' = new Dropzone("div#' . $this->dropzoneContainer . '", ' . Json::encode($this->options) . ');';
 
         if (!empty($this->clientEvents)) {
             foreach ($this->clientEvents as $event => $handler) {
@@ -80,6 +82,7 @@ class DropZone extends \yii\base\Widget
             }
         }
 
+        $view->registerJs($jsAutoDiscover, View::POS_END);
         $view->registerJs($js);
         DropZoneAsset::register($view);
     }
