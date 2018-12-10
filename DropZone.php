@@ -73,7 +73,7 @@ class DropZone extends \yii\base\Widget
     {
         $view = $this->getView();
 
-        $jsAutoDiscover = 'Dropzone.autoDiscover = ' . $this->autoDiscover;
+        $jsAutoDiscover = 'Dropzone.autoDiscover = ' . $this->autoDiscover.';';
         $js = 'var ' . $this->id . ' = new Dropzone("div#' . $this->dropzoneContainer . '", ' . Json::encode($this->options) . ');';
 
         if (!empty($this->clientEvents)) {
